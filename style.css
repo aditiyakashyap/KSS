@@ -1,473 +1,158 @@
+/* ===== Add these new font imports at the top of your CSS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Update your :root font stack */
 :root {
-    --primary-color: #0071e3;
-    --primary-dark: #0062c4;
-    --text-color: #1d1d1f;
-    --text-light: #86868b;
-    --bg-light: #f5f5f7;
-    --bg-dark: #000;
-    --white: #fff;
-    --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.3, 1);
-    --section-spacing: 10rem;
+    --font-primary: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --font-accent: 'Playfair Display', serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: var(--text-color);
-    line-height: 1.5;
-    overflow-x: hidden;
-    background-color: var(--white);
-    -webkit-font-smoothing: antialiased;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1.2rem 5%;
-    z-index: 100;
-    background-color: rgba(255, 255, 255, 0.80);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    transition: var(--transition);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-header.scrolled {
-    padding: 0.8rem 5%;
-    background-color: rgba(210, 210, 210, 0.92); 
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: var(--text-color);
-}
-
-.logo img {
-    height: 1.8rem;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 400;
-    font-size: 0.95rem;
-    transition: var(--transition);
+/* ===== Dynamic Elements ===== */
+/* 1. Glowing CTA Button */
+.cta-button {
     position: relative;
-    opacity: 0.8;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.nav-links a:hover {
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 75%
+    );
+    transform: rotate(45deg);
+    z-index: -1;
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.cta-button:hover::before {
+    animation: shine 1.5s infinite;
     opacity: 1;
 }
 
-.hero {
-    height: 100vh;
-    min-height: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 5%;
-    position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: var(--white);
-    overflow: hidden;
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
 }
 
-.hero-content {
-    max-width: 800px;
-    margin-bottom: 5rem;
-    transform: translateY(20px);
-    opacity: 0;
-    animation: fadeInUp 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.hero h1 {
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin-bottom: 1.8rem;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-}
-
-.subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 3rem;
-    font-weight: 400;
-    opacity: 0.9;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 0.9rem 2.2rem;
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: var(--transition);
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button:hover {
-    background-color: var(--primary-dark);
-    transform: scale(1.03);
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
-    opacity: 0;
-    animation: elegantFadeIn 2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.5s forwards;
-}
-
-.scroll-indicator span {
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    transform: translateY(20px);
-    animation: textFloat 3s ease-in-out infinite;
-}
-
-.scroll-indicator .line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(255, 255, 255, 0.2) 80%, 
-        rgba(255, 255, 255, 0) 100%);
-    animation: linePulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes elegantFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    100% {
-        opacity: 0.9;
-        transform: translateY(0);
-    }
-}
-
-@keyframes textFloat {
-    0%, 100% {
-        transform: translateY(0);
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-    50% {
-        transform: translateY(-8px);
-        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    }
-}
-
-@keyframes linePulse {
-    0%, 100% {
-        height: 60px;
-        opacity: 0.8;
-    }
-    50% {
-        height: 40px;
-        opacity: 0.4;
-    }
-}
-
-section {
-    padding: var(--section-spacing) 5%;
-    position: relative;
-}
-
+/* 2. Animated Gradient Underline for Headings */
 h2 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.section-description {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-    color: var(--text-light);
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.4;
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+    border-radius: 3px;
+    animation: underlinePulse 3s ease infinite;
 }
 
-.solutions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
+@keyframes underlinePulse {
+    0%, 100% { width: 80px; }
+    50% { width: 120px; }
 }
 
-/* CARD HOVER EFFECTS ONLY */
+/* 3. Floating Cards with 3D Tilt */
 .solution-card {
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    transform: translateY(0) scale(1);
+    transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transform-style: preserve-3d;
 }
 
 .solution-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: 
+        translateY(-10px) 
+        rotateX(5deg) 
+        rotateY(2deg) 
+        scale(1.03);
+    box-shadow: 
+        0 25px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255,255,255,0.1) inset;
 }
 
-.solution-card img {
-    height: 70px;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
-    transition: var(--transition);
-}
-
-.solution-card:hover img {
-    transform: scale(1.1);
-}
-
-.solution-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.solution-card:hover h3 {
-    color: var(--primary-color);
-}
-
-.solution-card p {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    transition: var(--transition);
-}
-
-.solution-card:hover p {
-    color: var(--text-color);
-}
-
-.about-section {
-    background-color: var(--bg-light);
-    text-align: center;
-    position: relative;
+/* 4. Text Typing Animation for Hero */
+.hero h1 {
+    font-family: var(--font-accent);
     overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--white);
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
 }
 
-.about-section::before {
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--white); }
+}
+
+/* 5. Particle Background Effect */
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
-    pointer-events: none;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particles 20s linear infinite;
+    z-index: -1;
 }
 
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
+@keyframes particles {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50px); }
 }
 
-.about-content p {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: var(--text-color);
+/* ===== Font Applications ===== */
+.hero h1 {
+    font-family: var(--font-accent);
+    font-weight: 700;
+    letter-spacing: -0.03em;
 }
 
-.contact-section {
-    background-color: var(--bg-dark);
-    color: var(--white);
-    text-align: center;
+h2, .section-description {
+    font-family: var(--font-secondary);
 }
 
-.contact-form {
-    max-width: 500px;
-    margin: 3rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.nav-links a, .subtitle {
+    font-family: var(--font-primary);
 }
 
-.contact-form input,
-.contact-form textarea {
-    padding: 1.2rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: inherit;
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--white);
-    transition: var(--transition);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    background-color: rgba(0, 113, 227, 0.1);
-}
-
-footer {
-    padding: 3rem 5%;
-    text-align: center;
-    background-color: var(--bg-light);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    max-width: 1440px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.footer-logo img {
-    height: 1.8rem;
-}
-
-@media (max-width: 1024px) {
-    :root {
-        --section-spacing: 8rem;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    h2 {
-        font-size: 2.8rem;
-    }
-}
-
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
-    :root {
-        --section-spacing: 6rem;
-    }
-    
-    .hero {
-        min-height: 700px;
-    }
-    
     .hero h1 {
-        font-size: 2.8rem;
-    }
-    
-    .subtitle {
-        font-size: 1.4rem;
-    }
-    
-    h2 {
-        font-size: 2.4rem;
-    }
-    
-    .section-description {
-        font-size: 1.2rem;
-    }
-    
-    .nav-links {
-        gap: 1.8rem;
+        animation: none;
+        white-space: normal;
+        border-right: none;
     }
     
     .solution-card:hover {
-        transform: translateY(-5px) scale(1.02);
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --section-spacing: 5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .subtitle {
-        font-size: 2rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    .nav-links {
-        gap: 1.2rem;
-    }
-    
-    .logo span {
-        display: none;
-    }
-    
-    .solution-card {
-        padding: 1.8rem;
+        transform: translateY(-8px) scale(1.02);
     }
 }
