@@ -26,9 +26,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+ 
 }
-
 /* Luxury Header & Nav */
 .luxury-header {
   position: fixed;
@@ -40,7 +39,7 @@ body {
   box-shadow: var(--shadow);
   border-bottom: 1px solid var(--glass-border);
   transition: var(--transition);
-}
+
 }
 .luxury-nav {
   display: flex;
