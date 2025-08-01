@@ -130,10 +130,10 @@
             <h2>Ready to Transform Your Digital Presence?</h2>
             <p>Let's discuss how KSS can solve your software challenges.</p>
             
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea placeholder="Tell us about your project..." required></textarea>
+            <form class="contact-form" action="sendmail.php" method="POST">
+              <input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
+<textarea name="message" placeholder="Tell us about your project..." required></textarea>
                 <button type="submit" class="cta-button">Get in Touch</button>
             </form>
         </section>
