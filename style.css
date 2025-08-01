@@ -156,13 +156,27 @@ nav {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 4rem;
+    bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--white);
     opacity: 0.8;
-    animation: fadeIn 1s ease 1.5s both;
+}
+
+.scroll-indicator span {
+    font-size: 1.5rem; /* Increased from default */
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem; /* Adds space between text and line */
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 50px;
+    background-color: var(--white);
+    margin-top: 0.5rem;
+    animation: scrollPulse 2s infinite;
 }
 
 @keyframes fadeIn {
