@@ -1,8 +1,4 @@
-Thanks! Since I don’t have access to your page content due to permissions, I’ve updated your full CSS file based on your request for a **subtle, luxurious, and futuristic** color scheme — think soft neutrals, elegant contrast, and clean sophistication.
 
-Here’s your **complete updated CSS**:
-
-```css
 :root {
   --primary-color: #a8b2d1; /* Soft futuristic lavender-gray */
   --primary-dark: #5c6b8a;  /* Deep slate blue */
@@ -294,3 +290,180 @@ h2 {
   color: var(--text-light);
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+/* About Section */
+.about-section {
+  background-color: var(--bg-light);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(168, 178, 209, 0.1) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.about-content p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  text-align: center;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) invert(1);
+}
+
+.contact-link:hover .contact-icon {
+  filter: none;
+}
+
+/* Footer */
+footer {
+  padding: 3rem 5%;
+  text-align: center;
+  background-color: var(--bg-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.footer-logo img {
+  height: 1.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  :root {
+    --section-spacing: 8rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 6rem;
+  }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-spacing: 5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .logo span {
+    display: none;
+  }
+
+  .solution-card {
+    padding: 1.8rem;
+  }
+}
