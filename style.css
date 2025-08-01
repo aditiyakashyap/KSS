@@ -1,22 +1,18 @@
-/* ===== Add these new font imports at the top of your CSS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+/* ===== Add this at the BOTTOM of your existing CSS ===== */
+/* 1. Premium Font Upgrade (Non-Intrusive) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
 
-/* Update your :root font stack */
 :root {
-    --font-primary: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-secondary: 'Montserrat', sans-serif;
-    --font-accent: 'Playfair Display', serif;
+    --font-accent: 'Manrope', -apple-system, sans-serif; /* Modern tech font */
 }
 
-/* ===== Dynamic Elements ===== */
-/* 1. Glowing CTA Button */
+/* 2. Dynamic Button Hover (Matches your blue theme) */
 .cta-button {
     position: relative;
     overflow: hidden;
-    z-index: 1;
 }
 
-.cta-button::before {
+.cta-button::after {
     content: '';
     position: absolute;
     top: -50%;
@@ -24,135 +20,73 @@
     width: 200%;
     height: 200%;
     background: linear-gradient(
-        45deg,
-        transparent 25%,
+        to right,
+        rgba(255,255,255,0) 0%,
         rgba(255,255,255,0.1) 50%,
-        transparent 75%
+        rgba(255,255,255,0) 100%
     );
-    transform: rotate(45deg);
-    z-index: -1;
-    transition: all 0.6s ease;
-    opacity: 0;
+    transform: rotate(30deg);
+    transition: all 0.7s ease;
 }
 
-.cta-button:hover::before {
-    animation: shine 1.5s infinite;
-    opacity: 1;
+.cta-button:hover::after {
+    left: 100%;
 }
 
-@keyframes shine {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
-}
-
-/* 2. Animated Gradient Underline for Headings */
-h2 {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), #00c6ff);
-    border-radius: 3px;
-    animation: underlinePulse 3s ease infinite;
-}
-
-@keyframes underlinePulse {
-    0%, 100% { width: 80px; }
-    50% { width: 120px; }
-}
-
-/* 3. Floating Cards with 3D Tilt */
-.solution-card {
-    transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    transform-style: preserve-3d;
-}
-
+/* 3. Card Hover Enhancement (Preserves current effect) */
 .solution-card:hover {
     transform: 
         translateY(-10px) 
-        rotateX(5deg) 
-        rotateY(2deg) 
-        scale(1.03);
+        scale(1.02);
     box-shadow: 
-        0 25px 40px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255,255,255,0.1) inset;
+        0 20px 40px rgba(0, 113, 227, 0.15),
+        0 0 0 1px rgba(0, 113, 227, 0.05) inset;
 }
 
-/* 4. Text Typing Animation for Hero */
+/* 4. Subtle Hero Text Animation */
 .hero h1 {
-    font-family: var(--font-accent);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid var(--white);
     animation: 
-        typing 3.5s steps(40, end),
-        blink-caret 0.75s step-end infinite;
+        fadeInUp 1s ease 0.4s forwards,
+        textGlow 3s ease-in-out infinite alternate;
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    to { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--white); }
-}
-
-/* 5. Particle Background Effect */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: particles 20s linear infinite;
-    z-index: -1;
-}
-
-@keyframes particles {
-    from { transform: translateY(0); }
-    to { transform: translateY(-50px); }
-}
-
-/* ===== Font Applications ===== */
-.hero h1 {
+/* 5. Modern Scroll Indicator */
+.scroll-indicator span {
     font-family: var(--font-accent);
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-weight: 500;
+    animation: 
+        elegantFadeIn 2s ease 0.5s forwards,
+        float 3s ease-in-out infinite;
 }
 
-h2, .section-description {
-    font-family: var(--font-secondary);
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
-.nav-links a, .subtitle {
-    font-family: var(--font-primary);
+/* 6. Section Header Accent */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 3px;
 }
 
-/* ===== Responsive Adjustments ===== */
+/* Mobile Optimization */
 @media (max-width: 768px) {
     .hero h1 {
-        animation: none;
-        white-space: normal;
-        border-right: none;
+        animation: fadeInUp 1s ease 0.4s forwards;
     }
     
     .solution-card:hover {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(-5px);
     }
 }
