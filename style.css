@@ -31,7 +31,7 @@ header {
     width: 100%;
     padding: 1.2rem 5%;
     z-index: 100;
-    background-color: rgba(63, 74, 79, 0.80);
+background-color: rgba(29, 29, 31, 0.80);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     transition: var(--transition);
@@ -40,7 +40,8 @@ header {
 
 header.scrolled {
     padding: 0.8rem 5%;
-   background-color: rgba(63, 74, 79, 0.80); 
+background-color: rgba(29, 29, 31, 0.80);
+
 }
 
 nav {
