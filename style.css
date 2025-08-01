@@ -1,11 +1,10 @@
-
 :root {
-  --primary-color: #a8b2d1; /* Soft futuristic lavender-gray */
-  --primary-dark: #5c6b8a;  /* Deep slate blue */
-  --text-color: #2a2a2e;    /* Rich charcoal */
-  --text-light: #7c7c85;    /* Muted gray */
-  --bg-light: #f4f4f6;      /* Gentle off-white */
-  --bg-dark: #2f323a;       /* Deep graphite */
+  --primary-color: #a8b2d1;
+  --primary-dark: #5c6b8a;
+  --text-color: #2a2a2e;
+  --text-light: #7c7c85;
+  --bg-light: #f4f4f6;
+  --bg-dark: #2f323a;
   --white: #ffffff;
   --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.3, 1);
   --section-spacing: 10rem;
@@ -26,8 +25,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.5;
- 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
+
 /* Luxury Header & Nav */
 .luxury-header {
   position: fixed;
@@ -39,8 +41,8 @@ body {
   box-shadow: var(--shadow);
   border-bottom: 1px solid var(--glass-border);
   transition: var(--transition);
-
 }
+
 .luxury-nav {
   display: flex;
   justify-content: space-between;
@@ -49,6 +51,7 @@ body {
   margin: 0 auto;
   padding: 1.3rem 6vw;
 }
+
 .luxury-nav .logo {
   display: flex;
   align-items: center;
@@ -58,14 +61,17 @@ body {
   letter-spacing: 0.08em;
   color: var(--primary-dark);
 }
+
 .luxury-nav .logo img {
   height: 2.6rem;
 }
+
 .luxury-nav .nav-links {
   display: flex;
   gap: 2.3rem;
   list-style: none;
 }
+
 .luxury-nav .nav-links li a {
   color: var(--primary-dark);
   font-weight: 500;
