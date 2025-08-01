@@ -467,6 +467,45 @@ footer {
     .logo span {
         display: none;
     }
+
+
+/* === Animated Gradient Background for Solutions Section === */
+.solutions-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: var(--section-spacing) 5%;
+  color: var(--white);
+}
+
+/* Background layer for animation */
+.solutions-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  opacity: 0.25;
+  background: linear-gradient(-45deg, #839dee, #0062c4, #1c92d2, #f2fcfe);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  transition: background 0.3s ease;
+  border-radius: 20px;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.solution-card {
+  background-color: rgba(255, 255, 255, 0.85); /* Slight transparency */
+  backdrop-filter: blur(4px);
+}
+
     
     .solution-card {
         padding: 1.8rem;
