@@ -55,7 +55,11 @@ nav {
 }
 
 .logo img {
-    height: 2rem;
+    height: 2rem; /* ~32px - keep this as default */
+    width: auto; /* maintain aspect ratio */
+    min-width: 32px; /* prevent collapse if missing */
+    max-height: 3rem; /* allow some flexibility */
+    object-fit: contain; /* prevent distortion */
 }
 
 .nav-links {
