@@ -100,7 +100,7 @@ body {
   border-radius: 2.5rem;
   box-shadow: var(--shadow);
   border: 1.5px solid var(--glass-border);
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(1px);
   padding: 3.5rem 3rem 2.5rem 3rem;
   margin: 0 auto;
   max-width: 640px;
