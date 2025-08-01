@@ -35,7 +35,7 @@ header {
   padding: 1.2rem 5%;
   z-index: 100;
   background-color: rgba(244, 244, 246, 0.85);
-  backdrop-filter: saturate(180%) blur(7px);
+  backdrop-filter: saturate(150%) blur(1px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: var(--transition);
 }
@@ -227,7 +227,7 @@ h2 {
   overflow: hidden;
   padding: var(--section-spacing) 5%;
   border-radius: 20px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-dark);
 }
 
 .solutions-section::before {
@@ -236,10 +236,10 @@ h2 {
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: -1;
-  opacity: 0.2;
+  opacity: 0.8;
   background: linear-gradient(-45deg, #6c7390, #a0a6b8, #cfd2db, #eaecef);
   background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
+  animation: gradientShift 10s ease infinite;
   border-radius: 20px;
 }
 
