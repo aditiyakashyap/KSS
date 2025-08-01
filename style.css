@@ -90,3 +90,35 @@ h2::after {
         transform: translateY(-5px);
     }
 }
+
+
+/* ===== SAFE CARD HOVER ANIMATIONS ===== */
+/* Add this to the VERY BOTTOM of your CSS file */
+.solution-card {
+    transition: 
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 15px 30px rgba(0, 113, 227, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Optional icon pop effect */
+.solution-card img {
+    transition: transform 0.4s ease;
+}
+
+.solution-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+    .solution-card:hover {
+        transform: translateY(-5px);
+    }
+}
