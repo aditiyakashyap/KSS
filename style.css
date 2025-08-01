@@ -41,6 +41,7 @@ body {
   border-bottom: 1px solid var(--glass-border);
   transition: var(--transition);
 }
+}
 .luxury-nav {
   display: flex;
   justify-content: space-between;
