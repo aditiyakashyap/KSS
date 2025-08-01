@@ -1,124 +1,71 @@
-/* ===== Add this at the BOTTOM of your existing CSS ===== */
-/* 1. Premium Font Upgrade (Non-Intrusive) */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
-
+/* ===== ORIGINAL CSS WITH FONT ENHANCEMENTS ===== */
 :root {
-    --font-accent: 'Manrope', -apple-system, sans-serif; /* Modern tech font */
+    --primary-color: #0066ff;
+    --primary-dark: #0052cc;
+    --text-color: #1d1d1f;
+    --text-light: #86868b;
+    --bg-light: #f5f5f7;
+    --bg-dark: #000;
+    --white: #fff;
+    --transition: all 0.3s ease;
 }
 
-/* 2. Dynamic Button Hover (Matches your blue theme) */
-.cta-button {
+/* Improved font stack */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Original header styles */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+/* Original hero styles */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
     position: relative;
-    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
 }
 
-.cta-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.1) 50%,
-        rgba(255,255,255,0) 100%
-    );
-    transform: rotate(30deg);
-    transition: all 0.7s ease;
-}
-
-.cta-button:hover::after {
-    left: 100%;
-}
-
-/* 3. Card Hover Enhancement (Preserves current effect) */
-.solution-card:hover {
-    transform: 
-        translateY(-10px) 
-        scale(1.02);
-    box-shadow: 
-        0 20px 40px rgba(0, 113, 227, 0.15),
-        0 0 0 1px rgba(0, 113, 227, 0.05) inset;
-}
-
-/* 4. Subtle Hero Text Animation */
+/* Enhanced font sizes */
 .hero h1 {
-    animation: 
-        fadeInUp 1s ease 0.4s forwards,
-        textGlow 3s ease-in-out infinite alternate;
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive size */
+    line-height: 1.2;
 }
 
-@keyframes textGlow {
-    from { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
-    to { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+.subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem); /* Responsive size */
 }
 
-/* 5. Modern Scroll Indicator */
-.scroll-indicator span {
-    font-family: var(--font-accent);
-    font-weight: 500;
-    animation: 
-        elegantFadeIn 2s ease 0.5s forwards,
-        float 3s ease-in-out infinite;
+h2 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive size */
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-/* 6. Section Header Accent */
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 1rem auto 0;
-    border-radius: 3px;
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .hero h1 {
-        animation: fadeInUp 1s ease 0.4s forwards;
-    }
-    
-    .solution-card:hover {
-        transform: translateY(-5px);
-    }
-}
-
-
-/* ===== SAFE CARD HOVER ANIMATIONS ===== */
-/* Add this to the VERY BOTTOM of your CSS file */
+/* Original card styles (unchanged) */
 .solution-card {
-    transition: 
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s ease;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.solution-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-        0 15px 30px rgba(0, 113, 227, 0.12),
-        0 3px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* Optional icon pop effect */
-.solution-card img {
-    transition: transform 0.4s ease;
-}
-
-.solution-card:hover img {
-    transform: scale(1.1);
-}
-
-/* Mobile fix */
-@media (max-width: 768px) {
-    .solution-card:hover {
-        transform: translateY(-5px);
-    }
-}
+/* Original everything else below... */
