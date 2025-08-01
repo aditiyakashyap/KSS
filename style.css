@@ -1,0 +1,112 @@
+/* Base Styles */
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout Styles */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-section, .contact-section {
+    padding: 4rem 2rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Component Styles */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(80, 95, 144, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.card:hover {
+  box-shadow: 0 20px 48px rgba(80, 95, 144, 0.15);
+  transform: translateY(-10px) scale(1.03);
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #6366f1, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.13);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #7c3aed, #6366f1);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.18);
+  transform: scale(1.04);
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transform: scale(0);
+  animation: ripple-effect 0.5s linear;
+  pointer-events: none;
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Scroll Reveal Animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.77,0,.175,1), transform 0.7s cubic-bezier(.77,0,.175,1);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Form Elements */
+input, textarea {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+}
