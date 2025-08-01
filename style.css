@@ -341,7 +341,7 @@ h2 {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: var(--text-color);
+    color: var(--bg-white);
     text-decoration: none;
     font-size: 2rem;
     transition: all 0.3s ease;
