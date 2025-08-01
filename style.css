@@ -20,7 +20,7 @@
 
 body {
   font-family: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: var(--text-color);
+  color: var(--bg-dark);
   line-height: 1.5;
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
