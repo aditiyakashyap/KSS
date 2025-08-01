@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #0071e3; /* Apple-like blue */
-    --primary-dark: #0062c4;
+--lavender: #e6e6fa; /* Soft lavender */
+--lavender-dark: #7a6f9b; /* Dark lavender */
     --text-color: #1d1d1f;
-    --text-light: #86868b;
-    --bg-light: #f5f5f7;
+    --text-light: #f5f5f7;
+    --bg-light: #86868b;
     --bg-dark: #000;
     --white: #fff;
     --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.3, 1);
