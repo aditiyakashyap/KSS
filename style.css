@@ -35,7 +35,6 @@ header {
   padding: 1.2rem 5%;
   z-index: 100;
   background-color: rgba(244, 244, 246, 0.85);
-  backdrop-filter: saturate(150%) blur(1px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: var(--transition);
 }
