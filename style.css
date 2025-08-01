@@ -237,7 +237,7 @@ h2 {
   width: 100%; height: 100%;
   z-index: -1;
   opacity: 0.2;
-  background: linear-gradient(-45deg, #a8b2d1, #dfe3ec, #f4f4f6, #ffffff);
+  background: linear-gradient(-45deg, #6c7390, #a0a6b8, #cfd2db, #eaecef);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   border-radius: 20px;
