@@ -1,6 +1,6 @@
 :root {
---lavender: #e6e6fa; /* Soft lavender */
---lavender-dark: #7a6f9b; /* Dark lavender */
+    --primary-color: #0071e3; /* Apple-like blue */ 
+    --primary-dark: #0062c4; 
     --text-color: #86868b;
     --text-light: #f5f5f7;
     --bg-light: #1d1d1f;
